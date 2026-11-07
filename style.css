@@ -165,3 +165,25 @@ footer {
     grid-template-columns: 1fr;
   }
 }
+
+
+
+[hidden] {
+  display: none !important;
+}
+
+#flashcard {
+  max-width: 600px;
+  margin: 30px auto;
+  text-align: center;
+  min-height: 240px;
+}
+
+#flashcard p {
+  min-height: auto;
+}
+
+#siguiente {
+  border: none;
+  cursor: pointer;
+}
