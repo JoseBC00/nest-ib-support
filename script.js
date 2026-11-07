@@ -11,5 +11,3 @@ botones.forEach((boton) => {
     );
   });
 });
-
-console.log("NEST IB SUPPORT iniciado correctamente.");
