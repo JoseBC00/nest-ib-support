@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Flashcards | NEST IB SUPPORT</title>
+  <link rel="stylesheet" href="flashcards.css">
+  <script src="https://cdn.sheetjs.com/xlsx-0.20.3/package/dist/xlsx.full.min.js" defer></script>
+  <script src="flashcards-app.js" defer></script>
+</head>
+<body>
+<header class="top"><a href="index.html" class="brand">NEST IB <span>SUPPORT</span></a><a href="index.html">← Inicio</a></header>
+<main class="container">
+  <div class="intro"><p class="eyebrow">Herramienta de estudio · versión local</p><h1>Flashcards y cuadros de repaso</h1><p>Crea conjuntos, importa tarjetas de NotebookLM o Excel, practica y prepara una tabla para imprimir.</p></div>
+  <div class="notice">Esta versión guarda tus conjuntos <strong>solo en este navegador</strong>. No se comparten todavía con otros estudiantes. Exporta una copia para conservarlos.</div>
+  <section class="panel" aria-labelledby="decksTitle">
+    <div class="heading"><h2 id="decksTitle">Mis conjuntos</h2><span id="storageCount" class="muted"></span></div>
+    <div class="row"><label class="grow">Conjunto activo<select id="deckSelect"></select></label><button id="newDeck" type="button">+ Nuevo conjunto</button><button id="deleteDeck" type="button" class="danger secondary">Eliminar conjunto</button></div>
+    <form id="deckForm" class="row hidden" autocomplete="off"><label class="grow">Nombre del conjunto<input id="deckName" placeholder="Ej.: Historia del siglo XX" maxlength="100" required></label><label class="grow">Asignatura<input id="deckSubject" placeholder="Ej.: Historia" maxlength="80"></label><button type="submit">Crear</button><button type="button" id="cancelDeck" class="secondary">Cancelar</button></form>
+  </section>
+  <nav class="tabs" aria-label="Herramientas"><button type="button" class="tab active" data-tab="create">Crear e importar</button><button type="button" class="tab" data-tab="study">Estudiar</button><button type="button" class="tab" data-tab="print">Cuadro e impresión</button></nav>
+  <section id="tab-create" class="panel tab-panel">
+    <h2>Añadir una tarjeta</h2>
+    <form id="cardForm"><div class="two"><label>Concepto / pregunta<textarea id="cardFront" required maxlength="2000" placeholder="Ej.: ¿Qué es una fuente primaria?"></textarea></label><label>Significado / respuesta<textarea id="cardBack" required maxlength="6000" placeholder="Ej.: Una fuente del período estudiado..."></textarea></label></div><label>Información extra (opcional)<textarea id="cardExtra" placeholder="Ejemplos, pronunciación, estructura..."></textarea></label><button type="submit">Añadir al conjunto</button></form>
+    <hr><h2>Importar varias tarjetas</h2><p class="muted">Acepta CSV de NotebookLM (dos columnas sin encabezados), CSV de Excel y archivos .xlsx. Revisa las columnas antes de importar.</p>
+    <label class="filearea">Seleccionar archivo CSV o Excel<input type="file" id="fileInput" accept=".csv,.xlsx,.xls" /></label>
+    <div id="mapping" class="hidden"><h3>Vista previa y columnas</h3><p id="fileInfo" class="muted"></p><div class="row"><label class="grow">Concepto / pregunta<select id="frontCol"></select></label><label class="grow">Significado / respuesta<select id="backCol"></select></label><label class="grow">Columnas adicionales<select id="extraMode"><option value="all">Agrupar todas las demás</option><option value="none">No importar extras</option></select></label></div><label class="check"><input id="hasHeader" type="checkbox"> La primera fila contiene encabezados</label><div class="table-scroll"><table id="preview"></table></div><button type="button" id="importBtn">Importar tarjetas del archivo</button></div>
+    <hr><div class="heading"><h2>Tarjetas de este conjunto</h2><span id="cardCount" class="muted"></span></div><div id="cardList"></div>
+  </section>
+  <section id="tab-study" class="panel tab-panel hidden"><h2>Modo estudio</h2><p class="muted">Piensa la respuesta, revélala y marca si necesitas repetirla.</p><div class="studybox"><p id="studyCounter" class="muted"></p><p id="studyFront" class="studyquestion"></p><div id="studyAnswer" class="answer hidden"></div><button id="revealBtn" type="button">Mostrar respuesta</button></div><div class="row actions"><button type="button" id="reviewBtn" class="secondary">Necesito repasar</button><button type="button" id="knownBtn">La sabía · Siguiente</button><button type="button" id="skipBtn" class="secondary">Siguiente</button></div><p id="studyStats" class="muted"></p></section>
+  <section id="tab-print" class="panel tab-panel hidden"><h2>Cuadro de repaso</h2><p class="muted">Organiza todo como una tabla. Las columnas adicionales aparecen agrupadas dentro de «Detalles» para imprimir de manera compacta.</p><div class="row print-controls"><label>Mostrar detalles<select id="printExtras"><option value="yes">Sí</option><option value="no">No</option></select></label><label>Orientación sugerida<select id="printOrientation"><option value="portrait">Vertical</option><option value="landscape">Horizontal</option></select></label><button id="printBtn" type="button">Imprimir / Guardar PDF</button><button id="csvBtn" type="button" class="secondary">Descargar CSV</button></div><div id="printArea"><h2 id="printTitle"></h2><p id="printSubject"></p><table id="printTable" class="print-table"></table></div></section>
+  <p id="status" role="status" aria-live="polite"></p>
+</main>
+<footer>Proyecto educativo independiente · NEST IB SUPPORT</footer>
+</body>
+</html>
