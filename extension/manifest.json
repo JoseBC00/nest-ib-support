@@ -1,0 +1,9 @@
+{
+  "manifest_version": 3,
+  "name": "NEST IB SUPPORT — Accesos de estudio",
+  "description": "Abre NEST IB y SUPPORT, guarda páginas de investigación localmente y consulta tus recursos.",
+  "version": "0.2.0",
+  "permissions": ["storage", "activeTab"],
+  "action": {"default_title": "NEST IB SUPPORT", "default_popup": "popup.html"},
+  "icons": {"128": "icons/icon128.png"}
+}

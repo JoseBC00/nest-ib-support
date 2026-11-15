@@ -1,0 +1,10 @@
+{
+  "name": "nest-ib-support",
+  "version": "2.2.0",
+  "type": "module",
+  "private": true,
+  "description": "NEST IB SUPPORT - plataforma educativa comunitaria",
+  "scripts": {
+    "check": "node --check auth.js && node --check js/core.js && node --check js/flashcards.js && node --check js/exams.js && node --check js/exam-print.js && node --check js/prompts.js && node --check js/admin.js && node --check js/library.js && node --check api/drive-upload.js && node --check api/drive-file.js && node --check server/drive-common.js && node tests/print_check.mjs"
+  }
+}

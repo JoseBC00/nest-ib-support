@@ -1,0 +1,14 @@
+NEST IB SUPPORT 2.2 – INSTRUCCIONES RÁPIDAS
+
+1. Haz una copia de seguridad de tu proyecto actual.
+2. Extrae todo este ZIP en otra carpeta (sin sobrescribir la versión anterior).
+3. Abre esa carpeta con Visual Studio Code y prueba index.html usando Live Server.
+4. Para solo los cambios visuales desde v2.1, puedes reemplazar index.html, css/app.css, js/core.js y js/home.js.
+5. Si aún no tienes el esquema comunitario, en Supabase SQL Editor ejecuta una vez database/01_support_schema.sql y configura tu UUID en support_staff. No lo ejecutes por el cambio visual.
+6. Cuando se haya configurado el esquema, en config.js establece cloudEnabled: true, usando únicamente clave publicable.
+7. Publica en una rama de pruebas de GitHub. En Vercel importa esa rama/repositorio y usa Framework Preset: Other, Root: ./, sin comando build.
+8. En Supabase Authentication > URL Configuration agrega https://TU-SITIO.vercel.app/login.html como Redirect URL.
+9. Drive sigue siendo OPCIONAL: no marques driveEnabled: true sin configurar OAuth y variables de entorno privadas en Vercel.
+10. Antes de abrir la comunidad, prueba cuentas distintas, RLS, moderación e importaciones.
+
+Nota: @Aprendices_PE se muestra como texto, pues no se proporcionó una URL oficial.
